@@ -35,6 +35,7 @@ export default function MyOrder() {
     useEffect(() => {
         fetchMyOrder()
     }, [])
+    console.log(orderData);
 
     return (
         <div>

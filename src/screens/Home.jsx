@@ -44,13 +44,13 @@ export default function Home() {
               </div>
             </div>
             <div className="carousel-item active" >
-              <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" className="d-block w-100  " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/06/burger-with-melted-cheese.jpg" style={{ filter: "brightness(50%)", objectFit: "cover", height: "500px" }} className="d-block w-100  "  alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/12/cutting-pizza.jpg" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/12/cutting-pizza.jpg" style={{ filter: "brightness(50%)", objectFit: "cover", height: "500px" }} className="d-block w-100 " alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQegXdKMLVPxPuyidLOklzgRM3HEWb6K7n_5A&s" className="d-block w-100 " style={{ filter: "brightness(30%)" }} alt="..." />
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQegXdKMLVPxPuyidLOklzgRM3HEWb6K7n_5A&s" style={{ filter: "brightness(50%)", objectFit: "cover", height: "500px" }} className="d-block w-100 " alt="..." />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -87,7 +87,7 @@ export default function Home() {
                 </div>
               )
             })
-            : ""}
+            : "Loaiding please wait or issue in fetching data"}
       </div>
       <Footer />
     </div>

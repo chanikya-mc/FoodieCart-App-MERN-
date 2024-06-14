@@ -41,7 +41,7 @@ export default function Card(props) {
     }
     console.log(food)
     console.log(new Date())
-    if (food !== []) {
+    if (food.length>0) {
       if (food.size === size) {
         await dispatch({ type: "UPDATE", id: foodItem._id, price: finalPrice, qty: qty })
         return
@@ -54,7 +54,7 @@ export default function Card(props) {
       return
     }
 
-    await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size })
+    await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size ,img: props.ImgSrc})
 
 
     // setBtnEnable(true)
@@ -76,7 +76,7 @@ export default function Card(props) {
     <div>
 
       <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
-        <img src={props.ImgSrc} className="card-img-top" alt="loading" style={{ height: "120px", objectFit: "fill" }} />
+        <img src={props.ImgSrc} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
         <div className="card-body">
           <h5 className="card-title">{props.foodName}</h5>
           {/* <p className="card-text">This is some random text. This is description.</p> */}
@@ -98,7 +98,6 @@ export default function Card(props) {
           </div>
           <hr></hr>
           <button className={`btn btn-success justify-center ms-2 `} onClick={handleAddToCart}>Add to Cart</button>
-        
           {/* <button className={`btn btn-danger justify-center ms-2 ${btnEnable ? "" : "disabled"}`} onClick={handleRemoveCart}>Remove</button> */}
         </div>
       </div>
