@@ -3,6 +3,9 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatchCart, useCart } from './ContextReducer'
 // import { Dropdown, DropdownButton } from 'react-bootstrap';
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+import { useToast } from '../screens/ToastContext';
 export default function Card(props) {
   let data = useCart();
 
@@ -10,6 +13,7 @@ export default function Card(props) {
   const [qty, setQty] = useState(1)
   const [size, setSize] = useState("")
   const priceRef = useRef();
+  const showToast = useToast();
   // const [btnEnable, setBtnEnable] = useState(false);
   // let totval = 0
   // let price = Object.values(options).map((value) => {
@@ -31,6 +35,10 @@ export default function Card(props) {
     setSize(e.target.value);
   }
   const handleAddToCart = async () => {
+    if (!localStorage.getItem("token")) {
+      navigate("/login")
+    }
+    
     let food = []
     for (const item of data) {
       if (item.id === foodItem._id) {
@@ -56,7 +64,7 @@ export default function Card(props) {
 
     await dispatch({ type: "ADD", id: foodItem._id, name: foodItem.name, price: finalPrice, qty: qty, size: size ,img: props.ImgSrc})
 
-
+    showToast('Added to Cart!');
     // setBtnEnable(true)
 
   }
@@ -75,7 +83,7 @@ export default function Card(props) {
   return (
     <div>
 
-      <div className="card mt-3" style={{ width: "16rem", maxHeight: "360px" }}>
+      <div className="card mt-3 me-2" style={{ width: "16rem", maxHeight: "360px" }}>
         <img src={props.ImgSrc} className="card-img-top" alt="..." style={{ height: "120px", objectFit: "fill" }} />
         <div className="card-body">
           <h5 className="card-title">{props.foodName}</h5>
@@ -98,6 +106,7 @@ export default function Card(props) {
           </div>
           <hr></hr>
           <button className={`btn btn-success justify-center ms-2 `} onClick={handleAddToCart}>Add to Cart</button>
+       
           {/* <button className={`btn btn-danger justify-center ms-2 ${btnEnable ? "" : "disabled"}`} onClick={handleRemoveCart}>Remove</button> */}
         </div>
       </div>

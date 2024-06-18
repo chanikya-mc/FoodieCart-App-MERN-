@@ -18,6 +18,7 @@ export default function Login() {
 
     });
     const json = await response.json()
+    console.log("...");
     console.log(json);
     if (json.success) {
       //save the auth toke to local storage and redirect
@@ -51,7 +52,7 @@ export default function Login() {
             <label htmlFor="exampleInputPassword1" className="form-label text-white">Password</label>
             <input type="password" className="form-control" value={credentials.password} onChange={onChange} name='password' placeholder='Enter Your password'/>
           </div>
-          <button type="submit" className="m-3 btn btn-success">Submit</button>
+          <button type="submit" className="m-3 btn btn-success">Login</button>
           <Link to="/signup" className="m-3 mx-1 btn btn-danger">New User</Link>
         </form>
 

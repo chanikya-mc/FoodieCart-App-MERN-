@@ -40,7 +40,7 @@ export default function Home() {
             <div className=" carousel-caption  " style={{ zIndex: "9" }}>
               <div className=" d-flex justify-content-center">  {/* justify-content-center, copy this <form> from navbar for search box */}
                 <input className="form-control me-2 w-75 bg-white text-dark" type="search" placeholder="Search in here..." aria-label="Search" value={search} onChange={(e) => { setSearch(e.target.value) }} />
-                <button className="btn text-white bg-danger" onClick={() => { setSearch('') }}>clear filter</button>
+                <button className="btn text-white bg-success" onClick={() => { setSearch('') }}>clear filter</button>
               </div>
             </div>
             <div className="carousel-item active" >
@@ -50,7 +50,7 @@ export default function Home() {
               <img src="https://www.foodiesfeed.com/wp-content/uploads/2023/12/cutting-pizza.jpg" style={{ filter: "brightness(50%)", objectFit: "cover", height: "500px" }} className="d-block w-100 " alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQegXdKMLVPxPuyidLOklzgRM3HEWb6K7n_5A&s" style={{ filter: "brightness(50%)", objectFit: "cover", height: "500px" }} className="d-block w-100 " alt="..." />
+              <img src="https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/hyderabadi-biryani-recipe-chicken.jpg" style={{ filter: "brightness(50%)", objectFit: "cover", height: "500px" }} className="d-block w-100 " alt="..." />
             </div>
           </div>
           <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
@@ -79,7 +79,7 @@ export default function Home() {
                     .map(filterItems => {
                       return (
                         <div key={filterItems.id} className='col-12 col-md-6 col-lg-3'>
-                          {console.log(filterItems.url)}
+                          
                           <Card foodName={filterItems.name} item={filterItems} options={filterItems.options[0]} ImgSrc={filterItems.img} ></Card>
                         </div>
                       )
