@@ -7,7 +7,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://foodiecart-app-mern-backend.onrender.com", {
+    const response = await fetch("https://foodiecart-app-mern-backend.onrender.com/api/auth/login", {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: 'POST',
