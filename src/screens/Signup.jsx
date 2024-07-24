@@ -21,7 +21,7 @@ export default function Signup() {
     // console.log(latlong)
     let [lat, long] = latlong
     console.log(lat, long)
-    const response = await fetch("https://foodiecart-app-mern-backend.onrender.com", {
+    const response = await fetch("https://foodiecart-app-mern-backend.onrender.com/api/auth/getlocation", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
